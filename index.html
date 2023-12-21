@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="center">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+            </ul>
+        </nav>
+        <h1 class="center padding">Recipes of the World</h1>
+        <p class="credit">Photo by Brooke Lark on Unsplash</p>
+    </header>
+    
+    <section>
+        <h2 class="center padding">Share Your Favorite Recipe</h2>
+        <div class="container">
+            <div class="column">
+                <form method="POST">
+                    <div class="row">
+                        <label class="label" for="name">Name</label>
+                        <input id="name" class="input" type="text" name="name" placeholder="Enter name here">
+                    </div>
+                    <div class="row">
+                        <label class="label" for="type">Type</label>
+                        <input id="type" class="input" type="text" name="type" placeholder="Type of food: main dish, decert ... ">
+                    </div>
+                    <div class="row">
+                        <label class="label" for="ingredients">Ingredients</label>
+                        <input id="ingredients" class="input" type="text" name="ingredient" placeholder="Add ingredients">
+                    </div>
+                    <div class="row">
+                        <input id="submitBtn" class="submit-button" type="button" value="Send">
+                    </div>
+                </form>
+            </div>
+            <div class="column">
+                <h4>Your recipe: </h4>
+                <div class="row">
+                    <p id="displayArea"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+<footer>
+</footer>
+</html>
