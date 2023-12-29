@@ -1,3 +1,8 @@
+// The following program takes the input from the user and stores it in the list. 
+// Once the user clicks the submit button, it creates the div and displays the input. 
+// Additional functionality includes a delete button and searching through the recipes names. 
+
+// Declair global variables
 const form = document.querySelector('form');
 const recipeList = document.querySelector('#recipe-list');
 const noRecipes = document.getElementById('no-recipes');
@@ -21,10 +26,12 @@ function handleSubmit(event) {
     const methodValue = methodInput.value.trim();
     const countryValue = countryInput.value.trim();
 
+    // Input validation
     if (nameValue && ingrValue.length > 0 && typeValue) {
         const newRecipe = { nameValue, countryValue, ingrValue, typeValue, methodValue };
         recipes.push(newRecipe);
 
+        // Clear the input fields
         nameInput.value = '';
         typeInput.value = '';
         ingrInput.value = '';
@@ -39,8 +46,11 @@ document.getElementById('submitBtn').addEventListener('click', handleSubmit);
 
 function displayRecipes() {
     const query = searchBox.value.toLowerCase();
+    /* Go through the recipes list and store recipe name matching the query from the recipe list 
+    into the variable filteredRecipes. If the search box is emplt, all recipes are added to the array */
     const filteredRecipes = recipes.filter(recipe => recipe.nameValue.toLowerCase().includes(query));
 
+    // Remove the message at the top 'You have no recipes'
     noRecipes.style.display = filteredRecipes.length > 0 ? 'none' : 'flex';
     recipeList.innerHTML = '';
 
