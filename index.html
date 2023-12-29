@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+    <title>Recipes of the World</title>
 </head>
 <body>
     <header>
         <nav>
             <ul class="center">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="recipes.html">Recipes</a></li>
             </ul>
         </nav>
         <h1 class="center padding">Recipes of the World</h1>
@@ -21,12 +27,19 @@
     
     <section>
         <h2 class="center padding">Share Your Favorite Recipe</h2>
+        <div class="small-row">
+            <div id="no-recipes">You have no recipes.</div>
+        </div>
         <div class="container">
-            <div class="column">
+            <div class="column col-1">
                 <form method="POST">
                     <div class="row">
                         <label class="label" for="name">Name</label>
                         <input id="name" class="input" type="text" name="name" placeholder="Enter name here">
+                    </div>
+                    <div class="row">
+                        <label class="label" for="Country">Country</label>
+                        <input id="country" class="input" type="text" name="country" placeholder="Enter country here">
                     </div>
                     <div class="row">
                         <label class="label" for="type">Type</label>
@@ -37,15 +50,16 @@
                         <input id="ingredients" class="input" type="text" name="ingredient" placeholder="Add ingredients">
                     </div>
                     <div class="row">
-                        <input id="submitBtn" class="submit-button" type="button" value="Send">
+                        <label class="label" for="method">Method</label>
+                        <textarea id="method" class="input" rows="5" cols="5" name="method" placeholder="Describe cooking method"></textarea>
+                    </div>
+                    <div class="row">
+                        <input id="submitBtn" class="submit-button" type="button" value="Share">
                     </div>
                 </form>
             </div>
-            <div class="column">
-                <h4>Your recipe: </h4>
-                <div class="row">
-                    <p id="displayArea"></p>
-                </div>
+            <div class="column col-2">
+                <div id="recipe-list"></div>
             </div>
         </div>
     </section>

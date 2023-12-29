@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    /* border: solid purple; */
 }
 
 body {
@@ -17,24 +16,41 @@ body {
 }
 
 .padding {
-    padding: 2em;
+    padding: 1.5em;
 }
 
 .container {
     display: flex;
     align-items: baseline;
+    padding-bottom: 2em;
 }
 
 .row {
     display: inline-flex;
     justify-content: space-between;
-    
     width: 90%;
     padding:1em;
 }
 
+.small-row {
+    width: 30%;
+    margin: 0 auto;
+    padding: 0 0 1.5em 0;
+    margin-bottom: 1em;
+}
+
 .column {
     width: 50%;
+}
+
+.col-1 {
+    border: solid lightgray 1px;
+    padding-right: 1em;
+    border-radius: 15px;
+}
+
+.col-2 {
+    padding-left: 1em;
 }
 
 nav li {
@@ -66,7 +82,7 @@ nav a {
     border: none;
     cursor: pointer;
     width: 70%;
-    border-bottom: solid grey 1px;
+    border-bottom: solid lightgrey 1px;
 }
 
 h1 {
@@ -94,4 +110,66 @@ p {
 .credit {
     font-size: x-small;
     color: gray;
+}
+
+#recipe-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+  
+#no-recipes {
+    display: flex;
+    background-color: #FFCCCC;
+    padding: 0.5em;
+    border-radius: 10px;
+    justify-content: center;
+    font-size: small;
+}
+
+.recipe {
+    background-color: #f8f8f8;
+    padding: 1em;
+    border-radius: 15px;
+  }
+  
+.recipe h3 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    color: blueviolet;
+    letter-spacing: 0.1em;
+    font-size: 1.5em;
+    text-align: center;
+}
+  
+.recipe ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.recipe ul {
+    padding-top: 0.5em;
+}
+  
+.recipe ul li {
+    margin-bottom: 0.5em;
+    display:inline-block;
+}
+
+i {
+    font-size: large;
+    cursor: pointer;
+    background-color: #f8f8f8;
+    color: red;
+    margin:0;
+    padding:0;
+}
+
+.delete-button {
+    float: right;
+}
+
+#method {
+    border: solid lightgrey 1px;
 }

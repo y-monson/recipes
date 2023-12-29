@@ -1,57 +1,67 @@
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('submitBtn').addEventListener('click', displayInput);
-  });
+const form = document.querySelector('form');
+const recipeList = document.querySelector('#recipe-list');
+const noRecipes = document.getElementById('no-recipes');
 
-function displayInput() {
-    let foodName = document.getElementById('name').value;
-    let foodType = document.getElementById('type').value;
-    let foodIngredients = document.getElementById('ingredients').value;
-    let displayArea = document.getElementById('displayArea');
+let recipes = [];
 
-    let displayContent = '';
+function handleSubmit(event) {
+    // Prevent default form submission behavior
+    event.preventDefault();
 
-    if (foodName.trim() !== '') {
-        displayContent += '<p>Name: ' + foodName + '</p>';
+    // Get recipe name, ingredients, and method input values
+    const nameInput = document.querySelector('#name');
+    const countryInput = document.querySelector('#country');
+    const typeInput = document.querySelector('#type');
+    const ingrInput = document.querySelector('#ingredients');
+    const methodInput = document.querySelector('#method');
+    const nameValue = nameInput.value.trim();
+    const ingrValue = ingrInput.value.trim().split(',').map(i => i.trim());
+    const typeValue = typeInput.value.trim();
+    const methodValue = methodInput.value.trim();
+    const countryValue = countryInput.value.trim();
+
+    if (nameValue && ingrValue.length > 0 && typeValue) {
+        const newRecipe = { nameValue, countryValue, ingrValue, typeValue, methodValue };
+        recipes.push(newRecipe);
+
+        nameInput.value = '';
+        typeInput.value = '';
+        ingrInput.value = '';
+        methodInput.value = '';
+        countryInput.value = '';
+
+        displayRecipes();
     }
-
-    if (foodType.trim() !== '') {
-        displayContent += '<p>Type: ' + foodType + '</p>';
-    }
-
-    if (foodIngredients.trim() !== '') {
-        displayContent += '<p>Ingredients: ' + foodIngredients + '</p>';
-    }
-    displayArea.innerHTML = displayContent;
-
 }
 
+document.getElementById('submitBtn').addEventListener('click', handleSubmit);
 
+function displayRecipes() {
+    noRecipes.style.display = recipes.length > 0 ? 'none' : 'flex';
+    recipeList.innerHTML = '';
 
-// function displayInput() {
-// // Define an array of input field IDs
-// var inputFieldIds = ['name', 'type', 'ingredients'];
+    recipes.forEach((recipe, index) => {
+        const recipeDiv = document.createElement('div');
+        recipeDiv.innerHTML = `
+            <h3>${recipe.nameValue}</h3>
+            <p><strong>Country: </strong>${recipe.countryValue}</p>
+            <p><strong>Type: </strong>${recipe.typeValue}</p>
+            <p><ul><strong>Ingredients: </strong>${recipe.ingrValue.map(ingr => `<li>${ingr}</li>`).join(', ')}</ul></p>
+            <p><strong>Cooking method: </strong>${recipe.methodValue}</p>
+            <button class="delete-button" data-index="${index}"><i class="fa-sharp fa-solid fa-xmark"></i></i></button>`;
+        recipeDiv.classList.add('recipe');
+        recipeList.appendChild(recipeDiv);
+    });
 
-// // Get input values and display on the same page
-// var displayArea = document.getElementById('displayArea');
-// displayArea.innerHTML = ''; // Clear previous content
+    // Add event listeners for delete buttons
+    const deleteButtons = document.querySelectorAll('.delete-button');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', handleDelete);
+    });
+}
 
-// inputFieldIds.forEach(function(fieldId) {
-//     var value = document.getElementById(fieldId).value;
-//     if (value.trim() !== '') {
-//     displayArea.innerHTML += '<p>' + fieldId.charAt(0).toUpperCase() + fieldId.slice(1) + ': ' + value + '</p>';
-//     }
-// });
-// }
-
-// function displayInput() {
-//     // Get input values
-//     var name = document.getElementById('name').value;
-//     var type = document.getElementById('type').value;
-//     var ingredients = document.getElementById('ingredients').value;
-
-//     // Display input on the same page
-//     var displayArea = document.getElementById('displayArea');
-//     displayArea.innerHTML = '<p>Name: ' + name + '</p>';
-//     displayArea.innerHTML = '<p>Type: ' + type + '</p>';
-//     displayArea.innerHTML = '<p>Ingredients: ' + ingredients + '</p>';
-// }
+function handleDelete(event) {
+    const indexToDelete = event.currentTarget.dataset.index;
+    recipes.splice(indexToDelete, 1);
+    displayRecipes();
+}
