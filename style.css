@@ -56,11 +56,12 @@ body {
 .col-1 {
     border: solid lightgray 1px;
     padding-right: 1em;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .col-2 {
     padding-left: 1em;
+    border-radius: 10px;
 }
 
 /* ----------------------------- */
@@ -104,14 +105,15 @@ p {
 
 .submit-button {
     border: none;
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
-    background-color: rgb(116, 48, 179);
+    background-color: rgba(116, 48, 179,0.9);
     color: white;
     font-size: large;
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .label {
@@ -187,7 +189,7 @@ i {
 #search-section {
     background-color: #f8f8f8;
     padding: 1em;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 #search-box {
