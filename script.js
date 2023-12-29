@@ -1,6 +1,7 @@
 const form = document.querySelector('form');
 const recipeList = document.querySelector('#recipe-list');
 const noRecipes = document.getElementById('no-recipes');
+const searchBox = document.getElementById('search-box');
 
 let recipes = [];
 
@@ -8,7 +9,7 @@ function handleSubmit(event) {
     // Prevent default form submission behavior
     event.preventDefault();
 
-    // Get recipe name, ingredients, and method input values
+    // Get recipe input values
     const nameInput = document.querySelector('#name');
     const countryInput = document.querySelector('#country');
     const typeInput = document.querySelector('#type');
@@ -37,10 +38,13 @@ function handleSubmit(event) {
 document.getElementById('submitBtn').addEventListener('click', handleSubmit);
 
 function displayRecipes() {
-    noRecipes.style.display = recipes.length > 0 ? 'none' : 'flex';
+    const query = searchBox.value.toLowerCase();
+    const filteredRecipes = recipes.filter(recipe => recipe.nameValue.toLowerCase().includes(query));
+
+    noRecipes.style.display = filteredRecipes.length > 0 ? 'none' : 'flex';
     recipeList.innerHTML = '';
 
-    recipes.forEach((recipe, index) => {
+    filteredRecipes.forEach((recipe, index) => {
         const recipeDiv = document.createElement('div');
         recipeDiv.innerHTML = `
             <h3>${recipe.nameValue}</h3>
@@ -48,7 +52,7 @@ function displayRecipes() {
             <p><strong>Type: </strong>${recipe.typeValue}</p>
             <p><ul><strong>Ingredients: </strong>${recipe.ingrValue.map(ingr => `<li>${ingr}</li>`).join(', ')}</ul></p>
             <p><strong>Cooking method: </strong>${recipe.methodValue}</p>
-            <button class="delete-button" data-index="${index}"><i class="fa-sharp fa-solid fa-xmark"></i></i></button>`;
+            <button class="delete-button" data-index="${index}"><i class="fas fa-trash"></i></button>`;
         recipeDiv.classList.add('recipe');
         recipeList.appendChild(recipeDiv);
     });
@@ -65,3 +69,8 @@ function handleDelete(event) {
     recipes.splice(indexToDelete, 1);
     displayRecipes();
 }
+
+searchBox.addEventListener('input', displayRecipes);
+
+// Initialize the display with all recipes
+displayRecipes();
