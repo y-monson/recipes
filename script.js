@@ -10,6 +10,38 @@ const searchBox = document.getElementById('search-box');
 
 let recipes = [];
 
+// function handleSubmit(event) {
+//     // Prevent default form submission behavior
+//     event.preventDefault();
+
+//     // Get recipe input values
+//     const nameInput = document.querySelector('#name');
+//     const countryInput = document.querySelector('#country');
+//     const typeInput = document.querySelector('#type');
+//     const ingrInput = document.querySelector('#ingredients');
+//     const methodInput = document.querySelector('#method');
+//     const nameValue = nameInput.value.trim();
+//     const ingrValue = ingrInput.value.trim().split(',').map(i => i.trim());
+//     const typeValue = typeInput.value.trim();
+//     const methodValue = methodInput.value.trim();
+//     const countryValue = countryInput.value.trim();
+
+//     // Input validation
+//     if (nameValue && ingrValue.length > 0 && typeValue) {
+//         const newRecipe = { nameValue, countryValue, ingrValue, typeValue, methodValue };
+//         recipes.push(newRecipe);
+
+//         // Clear the input fields
+//         nameInput.value = '';
+//         typeInput.value = '';
+//         ingrInput.value = '';
+//         methodInput.value = '';
+//         countryInput.value = '';
+
+//         displayRecipes();
+//     }
+// }
+
 function handleSubmit(event) {
     // Prevent default form submission behavior
     event.preventDefault();
@@ -17,14 +49,23 @@ function handleSubmit(event) {
     // Get recipe input values
     const nameInput = document.querySelector('#name');
     const countryInput = document.querySelector('#country');
-    const typeInput = document.querySelector('#type');
     const ingrInput = document.querySelector('#ingredients');
     const methodInput = document.querySelector('#method');
     const nameValue = nameInput.value.trim();
     const ingrValue = ingrInput.value.trim().split(',').map(i => i.trim());
-    const typeValue = typeInput.value.trim();
     const methodValue = methodInput.value.trim();
     const countryValue = countryInput.value.trim();
+
+    // Get selected types from checkboxes
+    const typeCheckboxes = document.querySelectorAll('#type-checkboxes input:checked');
+    const typeValue = Array.from(typeCheckboxes).map(checkbox => checkbox.value).join(', ');
+    
+    // typeCheckboxes.forEach (box => {
+    //     box.addEventListener('click', () => {
+    //         box.style.color = 'blue';
+    //     });
+    // });
+
 
     // Input validation
     if (nameValue && ingrValue.length > 0 && typeValue) {
@@ -33,14 +74,17 @@ function handleSubmit(event) {
 
         // Clear the input fields
         nameInput.value = '';
-        typeInput.value = '';
         ingrInput.value = '';
         methodInput.value = '';
         countryInput.value = '';
 
+        // Uncheck all checkboxes
+        typeCheckboxes.forEach(checkbox => checkbox.checked = false);
+
         displayRecipes();
     }
 }
+
 
 document.getElementById('submitBtn').addEventListener('click', handleSubmit);
 

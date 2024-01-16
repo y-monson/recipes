@@ -105,11 +105,18 @@ p {
     width: 100%;
     margin: 0 auto;
     background-color: rgba(116, 48, 179,0.9);
+    background-image: linear-gradient(to right, rgba(86, 32, 137, 0.1), rgb(86, 32, 137));
     color: white;
+    letter-spacing: 0.1em;
     font-size: large;
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: rgb(86, 32, 137);
     cursor: pointer;
 }
 
@@ -123,6 +130,41 @@ p {
     width: 70%;
     border-bottom: solid lightgrey 1px;
     font-size: 1em;
+}
+
+#country {
+    color: gray;
+}
+
+/* Styles for checkboxes */
+.checkbox-group {
+    width: 70%;
+}
+.check-label {
+   padding-right: 0.5em;
+   padding-left: 0.5em;
+   cursor: pointer;
+   color: gray;
+}
+
+.check-label:hover {
+    color: black;
+}
+
+/* .check-label:checked {
+    color: black;
+} */
+
+.checkbox1 {
+    display:flex;
+    padding: 0.5em 0.5em 0.5em 0;
+    align-items: center;
+}
+
+.checkbox2 {
+    display: flex;
+    padding: 0.5em 0.5em 0.5em 0;
+    align-items: center;
 }
 
 /* Style for the textarea input box */

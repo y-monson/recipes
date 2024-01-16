@@ -34,12 +34,41 @@
                     </div>
                     <div class="row">
                         <label class="label" for="Country">Country</label>
-                        <input id="country" class="input" type="text" name="country" placeholder="Enter country here">
+                        <select id="country" class="input" name="country">
+                            <option value="" disabled selected>Select your country</option>
+                        </select>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <label class="label" for="type">Type</label>
                         <input id="type" class="input" type="text" name="type" placeholder="Type of food: main dish, decert ... ">
+                    </div> -->
+
+                    <div class="row"> 
+                        <label class="label" for="type">Type</label>
+                        <div id="type-checkboxes" class="checkbox-group">
+                            <div class="checkbox1">
+                            <input type="checkbox" id="mainDish" name="type" value="mainDish">
+                            <label class="check-label" for="mainDish">Main Dish</label>
+                    
+                            <input type="checkbox" id="sideDish" name="type" value="sideDish">
+                            <label class="check-label" for="sideDish">Side Dish</label>
+                    
+                            <input type="checkbox" id="breakfast" name="type" value="breakfast">
+                            <label class="check-label" for="breakfast">Breakfast</label>
+                            </div>
+                            <div class="checkbox2">
+                            <input type="checkbox" id="lunch" name="type" value="lunch">
+                            <label class="check-label" for="lunch">Lunch</label>
+                    
+                            <input type="checkbox" id="dinner" name="type" value="dinner">
+                            <label class="check-label" for="dinner">Dinner</label>
+                    
+                            <input type="checkbox" id="dessert" name="type" value="dessert">
+                            <label class="check-label" for="dessert">Dessert</label>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="row">
                         <label class="label" for="ingredients">Ingredients</label>
                         <input id="ingredients" class="input" type="text" name="ingredient" placeholder="Add ingredients">
@@ -64,6 +93,7 @@
         </div>
     </section>
     <script src="script.js"></script>
+    <script src="script2.js"></script>
 </body>
 <footer>
 </footer>
