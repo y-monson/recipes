@@ -54,13 +54,14 @@ The application uses the Edamam Recipe Search API to fetch recipes based on the 
 
 The fetchRecipes function in App.js:
 
-``` sh
-const fetchRecipes = async (query) => {
-  const encodedQuery = encodeURIComponent(query);
-  const response = await fetch(`https://api.edamam.com/search?q=${encodedQuery}&app_id=YOUR_APP_ID&app_key=YOUR_APP_KEY&to=20`);
-  const data = await response.json();
-  setRecipes(data.hits);
-};
+```sh
+   const fetchRecipes = async (query) => {
+     const encodedQuery = encodeURIComponent(query);
+     const response = await fetch(`https://api.edamam.com/search?q=${encodedQuery}&app_id=YOUR_APP_ID&app_key=YOUR_APP_KEY&to=20`);
+     const data = await response.json();
+     setRecipes(data.hits);
+   };
+
 
 ### Styling
 
