@@ -9,6 +9,13 @@ Recipe Finder is a React application that allows users to search for recipes usi
 - View detailed information about a selected recipe.
 - Responsive design for a better user experience on different devices.
 
+### Usage 
+
+- Open the application in your browser.
+- Enter a search term in the search box and press Enter or click the search icon.
+- Browse through the list of recipes.
+- Click on a recipe to view detailed information.
+
 ## Installation
 
 1. **Clone the repository:**
@@ -23,13 +30,6 @@ Recipe Finder is a React application that allows users to search for recipes usi
 3. **Start the development server:**
    ```sh
    npm start
-
-## Usage 
-
-- Open the application in your browser.
-- Enter a search term in the search box and press Enter or click the search icon.
-- Browse through the list of recipes.
-- Click on a recipe to view detailed information.
 
 ## Code Overview
 
@@ -63,7 +63,6 @@ The fetchRecipes function in App.js:
    };
 ```
 
-
 ### Styling
 
 The application is styled using CSS, with a focus on responsiveness and usability. Key styles are defined for the search box, recipe cards, and detailed recipe views.
@@ -75,7 +74,6 @@ The application is styled using CSS, with a focus on responsiveness and usabilit
 3. Filters: Add filtering options (e.g., by cuisine, dietary restrictions).
 4. Enhanced Styling: Improve the UI/UX with advanced styling and animations.
 5. Unit Tests: Add unit tests to ensure the reliability of the components.
-6. Deployment: Deploy the application using a service like Vercel, Netlify, or GitHub Pages.
 
 
 ## Getting Started with Create React App
