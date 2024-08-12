@@ -15,7 +15,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename="/recipes">
       <div className="App">
         <Routes>
           <Route path='/' element={<Home recipes={recipes} onSearch={fetchRecipes}/>} />
