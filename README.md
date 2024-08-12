@@ -16,6 +16,34 @@ Recipe Finder is a React application that allows users to search for recipes usi
    git clone https://github.com/your-username/recipe-finder.git
    cd recipe-finder
 
+2. **Install dependencies:**
+   ```sh
+   npm install
+
+3. **Start the development server:**
+   ```sh
+   npm start
+
+## Usage 
+
+- Open the application in your browser.
+- Enter a search term in the search box and press Enter or click the search icon.
+- Browse through the list of recipes.
+- Click on a recipe to view detailed information.
+
+## Code Overview
+
+### Components
+
+- **App:** The main component that sets up routing and state management.
+- **Header:** Displays the title of the application.
+- **Home:** The home page component that includes the search box and displays the list of recipes.
+- **Search:** Handles the search input and triggers the search query.
+- **RecipeCard:** Displays a brief overview of each recipe.
+- **RecipePage:** Displays detailed information about a selected recipe.
+
+
+
 
 # Getting Started with Create React App
 
