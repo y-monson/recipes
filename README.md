@@ -76,7 +76,7 @@ The application is styled using CSS, with a focus on responsiveness and usabilit
 5. Unit Tests: Add unit tests to ensure the reliability of the components.
 
 
-## Getting Started with Create React App
+## Additional information to get started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
