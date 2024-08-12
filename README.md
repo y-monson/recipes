@@ -67,7 +67,7 @@ The fetchRecipes function in App.js:
 
 The application is styled using CSS, with a focus on responsiveness and usability. Key styles are defined for the search box, recipe cards, and detailed recipe views.
 
-## Next Steps
+## Next Steps to enhance app functionality 
 
 1. Pagination: Implement pagination to load more recipes as the user scrolls or clicks a "Load More" button.
 2. Favorites: Allow users to save their favorite recipes for quick access.
