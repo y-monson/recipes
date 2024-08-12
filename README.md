@@ -42,10 +42,41 @@ Recipe Finder is a React application that allows users to search for recipes usi
 - **RecipeCard:** Displays a brief overview of each recipe.
 - **RecipePage:** Displays detailed information about a selected recipe.
 
+### API Integration
+
+The application uses the Edamam Recipe Search API to fetch recipes based on the user's search query.
+
+- The API call is made in the fetchRecipes function in the App component.
+- The search query is encoded and sent as a parameter to the API.
+- The response is parsed, and the list of recipes is stored in the component's state.
+
+### Fetching Recipes
+
+The fetchRecipes function in App.js:
+
+``` sh
+const fetchRecipes = async (query) => {
+  const encodedQuery = encodeURIComponent(query);
+  const response = await fetch(`https://api.edamam.com/search?q=${encodedQuery}&app_id=YOUR_APP_ID&app_key=YOUR_APP_KEY&to=20`);
+  const data = await response.json();
+  setRecipes(data.hits);
+};
+
+### Styling
+
+The application is styled using CSS, with a focus on responsiveness and usability. Key styles are defined for the search box, recipe cards, and detailed recipe views.
+
+## Next Steps
+
+Pagination: Implement pagination to load more recipes as the user scrolls or clicks a "Load More" button.
+Favorites: Allow users to save their favorite recipes for quick access.
+Filters: Add filtering options (e.g., by cuisine, dietary restrictions).
+Enhanced Styling: Improve the UI/UX with advanced styling and animations.
+Unit Tests: Add unit tests to ensure the reliability of the components.
+Deployment: Deploy the application using a service like Vercel, Netlify, or GitHub Pages.
 
 
-
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
