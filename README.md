@@ -70,12 +70,12 @@ The application is styled using CSS, with a focus on responsiveness and usabilit
 
 ## Next Steps
 
-Pagination: Implement pagination to load more recipes as the user scrolls or clicks a "Load More" button.
-Favorites: Allow users to save their favorite recipes for quick access.
-Filters: Add filtering options (e.g., by cuisine, dietary restrictions).
-Enhanced Styling: Improve the UI/UX with advanced styling and animations.
-Unit Tests: Add unit tests to ensure the reliability of the components.
-Deployment: Deploy the application using a service like Vercel, Netlify, or GitHub Pages.
+1. Pagination: Implement pagination to load more recipes as the user scrolls or clicks a "Load More" button.
+2. Favorites: Allow users to save their favorite recipes for quick access.
+3. Filters: Add filtering options (e.g., by cuisine, dietary restrictions).
+4. Enhanced Styling: Improve the UI/UX with advanced styling and animations.
+5. Unit Tests: Add unit tests to ensure the reliability of the components.
+6. Deployment: Deploy the application using a service like Vercel, Netlify, or GitHub Pages.
 
 
 ## Getting Started with Create React App
