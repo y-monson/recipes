@@ -61,6 +61,7 @@ The fetchRecipes function in App.js:
      const data = await response.json();
      setRecipes(data.hits);
    };
+```
 
 
 ### Styling
